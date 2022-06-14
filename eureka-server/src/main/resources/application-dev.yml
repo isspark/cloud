@@ -1,0 +1,13 @@
+eureka:
+  instance:
+    prefer-ip-address: true
+    hostname: localhost
+  server:
+    enable-self-preservation: true
+  client:
+    # 是否将此实例注册到注册中心
+    register-with-eureka: false
+    # 此实例是否从注册中心取值
+    fetch-registry: false
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka
