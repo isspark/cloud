@@ -1,11 +1,10 @@
+# 应用名称
 server:
-  port: 8761
   servlet:
     context-path: /cloud
+  port: 8773
 spring:
   profiles:
     active: dev
   application:
-    name: cloud1
-
-
+    name: cloud3

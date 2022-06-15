@@ -1,10 +1,10 @@
-package com.isspark.cloud;
+package com.isspark.cloud.eurekaserver3;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CloudStudyApplicationTests {
+class EurekaServer3ApplicationTests {
 
     @Test
     void contextLoads() {
