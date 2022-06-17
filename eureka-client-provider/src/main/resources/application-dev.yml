@@ -1,16 +1,14 @@
 eureka:
   instance:
-    prefer-ip-address: false
-    hostname: "eureka-cluster3"
-  server:
-    enable-self-preservation: true
+    prefer-ip-address: true
+    hostname: "eureka-provider"
   client:
     # 是否将此实例注册到注册中心
     register-with-eureka: true
     # 此实例是否从注册中心取值
     fetch-registry: true
     service-url:
-      defaultZone: http://eureka-cluster1:8761/cloud/eureka,http://eureka-cluster2:8762/cloud/eureka
+      defaultZone: http://eureka-cluster1:8761/cloud/eureka
 spring:
   freemarker:
     prefer-file-system-access: false
