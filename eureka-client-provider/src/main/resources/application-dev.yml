@@ -9,6 +9,7 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://eureka-cluster1:8761/cloud/eureka
+    enabled: false
 spring:
   freemarker:
     prefer-file-system-access: false
