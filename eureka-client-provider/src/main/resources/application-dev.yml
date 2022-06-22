@@ -13,3 +13,6 @@ eureka:
 spring:
   freemarker:
     prefer-file-system-access: false
+# 测试属性注入
+prop:
+  name: abc

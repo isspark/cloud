@@ -1,5 +1,6 @@
 package com.isspark.cloud.eurekaclientprovider.controller;
 
+import com.isspark.cloud.eurekaclientprovider.config.ReadConfigToJava;
 import com.isspark.cloud.eurekaclientprovider.service.IHelloService;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
@@ -22,10 +23,18 @@ public class EurekaProviderController {
     @Autowired
     private IHelloService helloService;
 
+    @Autowired
+    private ReadConfigToJava config;
+
     @GetMapping("/hello")
     public String hello(@RequestParam("name")String name){
         MDC.put("helloId", UUID.randomUUID().toString());
         log.info("test mdc:{}",MDC.get("helloId"));
         return helloService.sayHello(name);
+    }
+
+    @GetMapping("/config")
+    public String config(){
+        return config.getName();
     }
 }

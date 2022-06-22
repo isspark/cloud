@@ -1,6 +1,11 @@
 <!-- Logback configuration. See http://logback.qos.ch/manual/index.html -->
 <configuration scan="true" scanPeriod="2 seconds">
 
+<!--    <evaluator name="DISP_CALLER_EVAL">-->
+<!--        <expression>logger.contains("chapters.layouts") &amp;&amp; \-->
+<!--            message.contains("who calls thee")</expression>-->
+<!--    </evaluator>-->
+
     <!--    引入变量-->
 <!--    <variable scope="local" file="src/main/resources/chapters/configuration/variables1.properties" />-->
     <variable scope="context" name="nodeId" value="firstNode" />
@@ -12,8 +17,11 @@
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <!--格式化输出：%d表示日期，%-5level：级别从左显示5个字符宽度，%t表示线程名，%msg：日志消息，%n是换行符-->
-<!--            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} - %highlight(%-5level) %magenta(${PID:-}) %cyan(%-50.50(%logger{10}>%line)): %msg%n</pattern>-->
-            <pattern>%lo - %mdc %marker %property{nodeId}  %n</pattern>
+            <pattern>%date{yyyy-MM-dd HH:mm:ss.SSS} - %highlight(%.-1level) %magenta(${PID:-}) %cyan(%-50.50(%logger{10}>%line)): %msg%n</pattern>
+<!--            <pattern>%lo - %mdc %marker %property{nodeId}  %n</pattern>-->
+<!--            <pattern>-->
+<!--                %-4relative [%thread] %-5level - %msg%n%caller{2, DISP_CALLER_EVAL}-->
+<!--            </pattern>-->
         </encoder>
     </appender>
 <!-- 自定义的日志处理类-->
