@@ -16,3 +16,11 @@ spring:
 # 测试属性注入
 prop:
   name: abc
+
+# 自定义Starter
+hello:
+  enabled: flase
+  name: isspark
+
+
+debug: true

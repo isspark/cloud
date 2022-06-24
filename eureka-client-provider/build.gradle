@@ -4,11 +4,12 @@ plugins {
     id 'java'
 }
 
-group = 'com.isspark.cloud'
+group = 'cloud'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
 repositories {
+    mavenLocal()
 //    mavenCentral()
     maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
     maven { url 'https://maven.aliyun.com/repository/google' }
@@ -23,6 +24,8 @@ ext {
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.cloud:spring-cloud-starter-netflix-eureka-client'
+    compile project(':spring-boot-starter-hello')
+//    implementation 'starter:spring-boot-starter-hello:1.0-SNAPSHOT'
     compileOnly 'org.projectlombok:lombok:1.18.24'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
