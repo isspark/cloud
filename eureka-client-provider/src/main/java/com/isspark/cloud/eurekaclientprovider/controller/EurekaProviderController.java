@@ -26,7 +26,7 @@ public class EurekaProviderController {
     @Autowired
     private ReadConfigToJava config;
 
-    @Autowired
+    @Autowired(required = false)
     private HelloStarterService helloStarterService;
 
     @GetMapping("/hello")

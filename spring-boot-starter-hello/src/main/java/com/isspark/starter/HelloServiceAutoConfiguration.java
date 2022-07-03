@@ -13,7 +13,7 @@ import com.isspark.starter.service.HelloStarterService;
 @Configuration
 @EnableConfigurationProperties(HelloStarterConfig.class)
 @ConditionalOnClass(HelloStarterService.class)
-@ConditionalOnProperty(prefix = "hello", value = "enabled", matchIfMissing = true)
+@ConditionalOnProperty(prefix = "hello", name = "enabled", matchIfMissing = false)
 public class HelloServiceAutoConfiguration {
 
     @Autowired

@@ -19,8 +19,7 @@ prop:
 
 # 自定义Starter
 hello:
-  enabled: flase
+#  enabled: false
   name: isspark
-
-
+# SPRING 开启DEBUG
 debug: true
