@@ -2,6 +2,9 @@ package com.isspark.cloud.eurekaclientprovider.controller;
 
 import com.isspark.cloud.eurekaclientprovider.config.ReadConfigToJava;
 import com.isspark.cloud.eurekaclientprovider.service.IHelloService;
+import com.isspark.starter.event.EventMulticaster;
+import com.isspark.starter.event.StarterEvent;
+import com.isspark.cloud.eurekaclientprovider.listener.StarterListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
@@ -29,6 +32,9 @@ public class EurekaProviderController {
     @Autowired(required = false)
     private HelloStarterService helloStarterService;
 
+    @Autowired
+    private EventMulticaster eventMulticaster;
+
     @GetMapping("/hello")
     public String hello(@RequestParam("name")String name){
         MDC.put("helloId", UUID.randomUUID().toString());
@@ -44,5 +50,12 @@ public class EurekaProviderController {
     @GetMapping("/starter")
     public String starter(){
         return helloStarterService.sayHelloStarter();
+    }
+
+    @GetMapping("/event")
+    public String event(@RequestParam("name") String name){
+        log.info("publish starter event");
+        eventMulticaster.multicastEvent(new StarterEvent(this,name));
+        return "SUCCESS";
     }
 }

@@ -15,4 +15,9 @@ public class StarterEvent extends AbstractEvent{
     public StarterEvent(Object source) {
         super(source);
     }
+
+    public StarterEvent(Object source, String name) {
+        super(source);
+        this.name = name;
+    }
 }
